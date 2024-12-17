@@ -1,0 +1,469 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+
+a {
+   text-decoration: none
+}
+
+/* Button Join Classroom */
+#btnJoinClassroom {
+   font-size: 1em;
+   padding: 6px 12px;
+   color: #fff;
+   text-decoration: none;
+   cursor: pointer;
+   transition: all 0.3s ease-out;
+   background: #4723D9;
+   border-radius: 50px;
+}
+
+/* Popup Button Create Data */
+#createdata{
+   background: #4723d9;
+   color: #fff;
+   padding: 10px 35px;
+   border: none;
+   border-radius: 0.5rem;
+   cursor: pointer;
+   font-size: 15px;
+   text-transform: uppercase;
+   letter-spacing: 3px;
+   font-family: var(--body-font);
+}
+
+#createdata:hover{
+   background: #411bda;
+}
+
+/* Popup Button Update Data */
+#updatedata{
+   background: #4723d9;
+   color: #fff;
+   padding: 10px 35px;
+   border: none;
+   border-radius: 0.5rem;
+   cursor: pointer;
+   font-size: 15px;
+   text-transform: uppercase;
+   letter-spacing: 3px;
+   font-family: var(--body-font);
+}
+
+#updatedata:hover{
+   background: #411bda;
+}
+
+/* Popup Button Del Data */
+#btndelete{
+   background-color: #eb4343;
+   color: #fff;
+   padding: 11px 37px;
+   border: none;
+   border-radius: 0.5rem;
+   cursor: pointer;
+   font-size: 15px;
+   text-transform: uppercase;
+   letter-spacing: 3px;
+   font-family: var(--body-font);
+}
+
+#btndelete:hover{
+   background: #d70000;
+}
+
+/* POPUP JOIN CLASSROOM */
+.joinclass {
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background: rgba(0, 0, 0, 0.8);
+   visibility: hidden;
+   opacity: 0;
+   padding-top: 200px;
+   z-index: 2;
+   transition: all 0.15s ease-in-out;
+}
+
+.joinclass:target {
+   visibility: visible;
+   opacity: 1;
+}
+
+.joinclasswrapper {
+   margin: auto;
+   padding: 20px;
+   background: #e7e7e7;
+   border-radius: 5px;
+   width: 65%;
+   position: relative;
+   font-family: var(--body-font)!important;
+}
+
+.joinclasswrapper h2 {
+   margin-top: 0;
+   color: #333;
+   font-weight: bold!important;
+}
+
+.joinclasswrapper .close {
+   position: absolute;
+   top: 20px;
+   right: 30px;
+   transition: all 10ms;
+   font-size: 30px;
+   font-weight: bold;
+   text-decoration: none;
+   color: #333;
+}
+
+.joinclasswrapper .close:hover {
+   color: #06D85F;
+}
+
+.joinclasswrapper .content {
+   max-height: 30%;
+   overflow: auto;
+}
+
+/* Button Create Classroom */
+#btnCreateClassroom {
+   font-size: 1em;
+   padding: 6px 12px;
+   color: #fff;
+   text-decoration: none;
+   cursor: pointer;
+   /* transition: all 0.3s ease-out; */
+   background: #4723D9;
+   border-radius: 50px;
+}
+
+/* POPUP CREATE CLASSROOM */
+.overlay {
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background: rgba(0, 0, 0, 0.8);
+   visibility: hidden;
+   opacity: 0;
+   padding-top: 200px;
+   z-index: 2;
+   transition: all 0.15s ease-in-out;
+}
+
+.overlay:target {
+   visibility: visible;
+   opacity: 1;
+}
+
+.wrapper {
+   margin: auto;
+   padding: 20px;
+   background: #e7e7e7;
+   border-radius: 5px;
+   width: 65%;
+   position: relative;
+   font-family: var(--body-font)!important;
+}
+
+.wrapper h2 {
+   margin-top: 0;
+   color: #333;
+   font-weight: bold!important;
+}
+
+.wrapper .close {
+   position: absolute;
+   top: 20px;
+   right: 30px;
+   transition: all 10ms;
+   font-size: 30px;
+   font-weight: bold;
+   text-decoration: none;
+   color: #333;
+}
+
+.wrapper .close:hover {
+   color: #06D85F;
+}
+
+.wrapper .content {
+   max-height: 30%;
+   overflow: auto;
+}
+
+/* Button Update Deck */
+#btnupdatedeck {
+   color: #ffffff;
+   padding: 10px 10px;
+   border: none;
+   border-radius: 50px;
+   cursor: pointer;
+   font-size: 15px;
+   text-transform: uppercase;
+   letter-spacing: 3px;
+   background-color: transparent;
+}
+
+/* POPUP CREATE DECK */
+.createdeck {
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background: rgba(0, 0, 0, 0.8);
+   visibility: hidden;
+   opacity: 0;
+   padding-top: 200px;
+}
+
+.createdeck:target {
+   visibility: visible;
+   opacity: 1;
+}
+
+.updatedeckwrapper {
+   margin: auto;
+   padding: 20px;
+   background: #e7e7e7;
+   border-radius: 5px;
+   width: 65%;
+   position: relative;
+   transition: all 5s ease-in-out;
+}
+
+.updatedeckwrapper h2 {
+   margin-top: 0;
+   color: #333;
+}
+
+.updatedeckwrapper .close {
+   position: absolute;
+   top: 20px;
+   right: 30px;
+   transition: all 10ms;
+   font-size: 30px;
+   font-weight: bold;
+   text-decoration: none;
+   color: #333;
+}
+
+.updatedeckwrapper .close:hover {
+   color: #06D85F;
+}
+
+.updatedeckwrapper .content {
+   max-height: 30%;
+   overflow: auto;
+}
+
+/* ! Deck Card */
+.ag-format-container {
+   width: 1142px;
+   /* margin: 0 auto; */
+}
+
+.ag-courses_box {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-align: start;
+   -ms-flex-align: start;
+   align-items: flex-start;
+   -ms-flex-wrap: wrap;
+   flex-wrap: wrap;
+   padding: 50px 0;
+}
+
+.ag-courses_item {
+   -ms-flex-preferred-size: calc(33.33333% - 30px);
+   flex-basis: calc(33.33333% - 30px);
+
+   margin: 0 15px 30px;
+
+   overflow: hidden;
+
+   border-radius: 28px;
+   box-shadow: 0 .20rem 2rem 0 rgba(58,59,69,.15);
+}
+
+.ag-courses-item_link {
+   display: block;
+   padding: 30px 20px;
+   background-color: #121212;
+
+   overflow: hidden;
+
+   position: relative;
+}
+
+.ag-courses-item_link:hover,
+.ag-courses-item_link:hover .ag-courses-item_date {
+   text-decoration: none;
+   color: #FFF;
+}
+
+.ag-courses-item_link:hover .ag-courses-item_bg {
+   -webkit-transform: scale(10);
+   -ms-transform: scale(10);
+   transform: scale(10);
+}
+
+.ag-courses-item_title {
+   min-height: 87px;
+   margin: 0 0 25px;
+
+   overflow: hidden;
+   font-weight: bold;
+   font-size: 30px;
+   color: #FFF;
+
+   z-index: 2;
+   position: relative;
+}
+
+.ag-courses-item_date-box {
+   font-size: 18px;
+   color: #FFF;
+
+   z-index: 2;
+   position: relative;
+}
+
+.ag-courses-item_date {
+   font-weight: bold;
+   color: #f9b234;
+
+   -webkit-transition: color .5s ease;
+   -o-transition: color .5s ease;
+   transition: color .5s ease
+}
+
+.ag-courses-item_bg {
+   height: 128px;
+   width: 128px;
+   background-color: #f9b234;
+
+   z-index: 1;
+   position: absolute;
+   top: -75px;
+   right: -75px;
+
+   border-radius: 50%;
+
+   -webkit-transition: all .5s ease;
+   -o-transition: all .5s ease;
+   transition: all .5s ease;
+}
+
+.ag-courses_item:nth-child(2n) .ag-courses-item_bg {
+   background-color: #3ecd5e;
+}
+
+.ag-courses_item:nth-child(3n) .ag-courses-item_bg {
+   background-color: #e44002;
+}
+
+.ag-courses_item:nth-child(4n) .ag-courses-item_bg {
+   background-color: #952aff;
+}
+
+.ag-courses_item:nth-child(5n) .ag-courses-item_bg {
+   background-color: #cd3e94;
+}
+
+.ag-courses_item:nth-child(6n) .ag-courses-item_bg {
+   background-color: #4c49ea;
+}
+
+/* ! form */
+
+.container {
+   border-radius: 5px;
+   /* background-color: #ffffff; */
+   padding: 20px 0;
+}
+
+form label {
+   font-weight: normal;
+   letter-spacing: 1.5px;
+}
+
+input[type=text],
+select,
+textarea {
+   width: 100%;
+   padding: 12px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-sizing: border-box;
+   margin-top: 6px;
+   margin-bottom: 16px;
+   resize: vertical;
+}
+
+/* .card{
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+} */
+#titleManageFlashcard{
+   font-family: 'Ubuntu', sans-serif;
+   font-weight: bold;
+   color: #121212;
+   letter-spacing: 5px;
+   margin-bottom: 1.5rem;
+   text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
+   0px -4px 10px rgba(255,255,255,0.3);
+}
+
+@media only screen and (max-width: 1024px) {
+   .ag-courses_item {
+      -ms-flex-preferred-size: calc(50% - 30px);
+      flex-basis: calc(50% - 30px);
+   }
+
+   .ag-format-container {
+      width: 96%;
+   }
+
+   .ag-courses-item_title {
+      font-size: 24px;
+   }
+}
+
+@media only screen and (max-width: 767px) {
+   .ag-format-container {
+      width: 96%;
+   }
+
+}
+
+@media only screen and (max-width: 639px) {
+   .btn {
+      font-size: 12px;
+      padding: 5px 10px;
+   }
+
+   .ag-courses_item {
+      -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+   }
+
+   .ag-courses-item_title {
+      min-height: 72px;
+      line-height: 1;
+      text-decoration: none;
+      font-size: 20px;
+   }
+
+   .ag-courses-item_link {
+      padding: 22px 40px;
+      text-decoration: none;
+   }
+
+   .ag-courses-item_date-box {
+      font-size: 16px;
+   }
+}

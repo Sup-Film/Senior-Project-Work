@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ExFlash</title>
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+
+  <!-- Bootrap -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+    integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.2/css/boxicons.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.css">
+
+  <!-- Style -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/footer.css">
+
+  <style>
+    .btn-next {
+      background-color: #40C7C0;
+      color: rgb(0, 0, 0);
+    }
+
+    .btn-next:hover {
+      background-color: #8298b2;
+    }
+
+    .w3-bar {
+      background-color: #272829;
+      color: white;
+    }
+
+    .backgound-ex {
+      background-color: #000000;
+      background-image: url('https://static.wixstatic.com/media/82fcd3_ed016384df3f43baa1d65cd00a0069cf~mv2.png/v1/fill/w_1344,h_948,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/82fcd3_ed016384df3f43baa1d65cd00a0069cf~mv2.png');
+      background-position: left bottom;
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding-bottom: 225px;
+      margin-top: -260px;
+      padding-top: 300px;
+    }
+
+    hr.style {
+      border-top: 5px solid #030303;
+      align-items: center;
+      width: 100%;
+      margin-top: 40px;
+    }
+
+    .footer-59391 {
+      margin-top: 0px;
+    }
+
+    .circular-progress {
+      position: relative;
+      height: 180px;
+      width: 180px;
+      border-radius: 50%;
+      background: conic-gradient(#7d2ae8 3.6deg, #ededed 0deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .circular-progress::before {
+      content: "";
+      position: absolute;
+      height: 140px;
+      width: 140px;
+      border-radius: 50%;
+      background-color: #fff;
+    }
+
+    .progress-value {
+      position: relative;
+      font-size: 40px;
+      font-weight: 600;
+      color: #7d2ae8;
+    }
+
+    .text {
+      font-size: 30px;
+      font-weight: 500;
+      color: #606060;
+    }
+    /*  */
+    
+  </style>
+</head>
+
+<body>
+  <!-- !Navbar -->
+  <navbar-component></navbar-component>
+
+  <!-- !Content -->
+  <div class="container-fluid backgound-ex" id="Score">
+    <div class="container" style="padding-top: 200px; margin-top: -60px; padding-left: 0px;padding-right: 0px;">
+        <div class="row justify-content-end">
+          <div class="col-3" style="width: fit-content;">
+            <button id=" btnNextdone" class="button btn btn-lg btn-next">
+              <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 320 512">
+                <path
+                  d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+              </svg><br>Next
+            </button>
+          </div>
+        </div>
+        <div class="row justify-content-center align-items-center text-center ">
+          <div class="circular-progress">
+            <span class="progress-value">0</span>
+          </div>
+        </div>
+      <div class="text-center" style="border-radius: 15px; padding: 2rem;background-color: #f5f5f5;height: 550px;">
+        <h1 class="font-poppin fw-bold" style="color: #939bb4;">Your Score</h1>
+        <h2 class="font-poppin fw-medium">${point}</h2>
+        <div class="row justify-content-center align-items-center text-center p-lg-5" >
+          <div class="col-6" style="border: 2px solid black;border-radius: 10px 0px 0px 10px;">
+            <h2 class="font-poppin fw-bold" style="color: #17fc76;">Correct</h2>
+            <h3 class="font-poppin fw-medium">${countCorrect}</h3>
+          </div>
+          <div class="col-6" style="border: 2px solid black;border-radius: 0px 10px 10px 0px;">
+            <h2 class="font-poppin fw-bold" style="color: #fc7317;">Wrong</h2>
+            <h3 class="font-poppin fw-medium">${countWrong}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- !Content -->
+
+  <!-- !Footer -->
+  <footer-component></footer-component>
+
+  <!-- Script -->
+  <script src="js/script.js"></script>
+  <script>
+    let circularProgress = document.querySelector(".circular-progress"),
+      progressValue = document.querySelector(".progress-value");
+    let progressStartValue = 0,
+      progressEndValue = 90,
+      speed = 20;
+
+    let progress = setInterval(() => {
+      progressStartValue++;
+      progressValue.textContent = `${progressStartValue}%`
+      circularProgress.style.background = `conic-gradient(#7d2ae8 ${progressStartValue * 3.6}deg, #ededed 0deg)`
+      if (progressStartValue == progressEndValue) {
+        clearInterval(progress);
+      }
+    }, speed);
+  </script>
+  <!-- Component -->
+  <script src="component/component.js"></script>
+
+  <!-- Bootrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

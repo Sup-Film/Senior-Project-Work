@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Admin</title>
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet" />
+
+  <!-- Bootrap5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this page -->
+  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+</head>
+
+<body id="page-top">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <!-- <i class="fas fa-laugh-wink"></i> -->
+        </div>
+        <div class="sidebar-brand-text mx-3">Admin</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0" />
+
+      <!-- Divider -->
+      <hr class="sidebar-divider" />
+
+      <!-- Heading -->
+      <div class="sidebar-heading">Data Management</div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+          aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Data</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Data tables:</h6>
+            <a class="collapse-item" href="manage_teacher">Manage Teacher</a>
+            <a class="collapse-item" href="manage_student">Manage Student</a>
+            <a class="collapse-item" href="manage_classroom">Manage Classroom</a>
+            <a class="collapse-item" href="manage_deck">Manage Deck</a>
+            <!-- <a class="collapse-item" href="manage_flashcard">Manage Flashcards</a> -->
+          </div>
+        </div>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider" />
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper">
+      <!-- Main Content -->
+      <div id="content">
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+          <!-- Sidebar Toggle (Topbar) -->
+          <form class="form-inline">
+            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+              <i class="fa fa-bars"></i>
+            </button>
+          </form>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                      aria-label="Search" aria-describedby="basic-addon2" />
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Modal Add Flashcard -->
+          <div class="modal fade" id="flashcard" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="flashcardLabel" aria-hidden="true">?
+            <div class="modal-dialog modal-dialog-scrollable modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="flashcardTitle">
+                    Add Flashcards
+                  </h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form action="" id="formImport">
+                    <div class="row my-5 align-items-center text-start">
+                      <label for="formFile" class="form-label" style="font-weight: bold; margin: 0">Choose File
+                      </label>
+                      <div class="col-md-6 my-3">
+                        <input class="form-control" type="file" id="formFile" />
+                      </div>
+                      <div class="col-md-2 my-3">
+                        <button type="submit" class="btn btn-primary" id="btnImport">
+                          Confirm
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                  <div class="row">
+                    <div class="row text-center my-2">
+                      <div class="col-5">
+                        <span style="font-weight: bold">Question</span>
+                      </div>
+                      <div class="col-5">
+                        <span style="font-weight: bold">Answer</span>
+                      </div>
+                    </div>
+                    <form id="textareaForm">
+                      <div class="row" id="formQA">
+                        <div class="row">
+                          <div class="col-md-5 my-2">
+                            <div class="input-group">
+                              <textarea name="question" class="form-control" id="importquestion"
+                                aria-label="With textarea" placeholder="Question"></textarea>
+                            </div>
+                          </div>
+                          <div class="col-md-5 my-2">
+                            <div class="input-group">
+                              <textarea name="answer" class="form-control" id="importanswer" aria-label="With textarea"
+                                placeholder="Answer"></textarea>
+                            </div>
+                          </div>
+                          <div class="col-md-1 col-3 my-2">
+                            <button type="button" class="btn btn-success" id="addBtn" onclick="addForm()"
+                              style="font-weight: bold">
+                              <i class="bi bi-plus-circle"></i> Add
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-10 my-2 d-flex justify-content-center align-items-center">
+                        <button type="submit" class="btn btn-secondary" style="font-weight: bold">
+                          Submit
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal Edit Deck -->
+          <div class="modal fade" id="editDeck" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="formDeckLabel" aria-hidden="true">?
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="formDeckTitle">
+                    Edit Decks
+                  </h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="editDeck">
+                  <div class="modal-body">
+                    <input type="hidden" id="inputDeckId" value="">
+                    <div class="row mb-4">
+                      <div class="col-md-3 mb-1">
+                        <span for="modalDeckName" class="col-form-label">Deck Name: </span>
+                      </div>
+                      <div class="col-md-12">
+                        <input type="text" class="form-control" id="modalDeckName" placeholder="Deck Name">
+                        <label id="regexEditDeckName" style="color: red; display: block;"></label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                      Close
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Decks Table</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Id</th>
+                      <th>Deck name</th>
+                      <th>ClassroomID</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>#</th>
+                      <th>Id</th>
+                      <th>Deck name</th>
+                      <th>ClassroomID</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </tfoot>
+                  <tbody id="teacherTableBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.container-fluid -->
+      </div>
+      <!-- End of Main Content -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">
+            Cancel
+          </button>
+          <a class="btn btn-primary" href="" onclick="logout()">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/datatables-demo.js"></script>
+
+  <!-- Sweetalert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- Check Admin -->
+  <script src="js/checkAdmin.js"></script>
+
+  <script>
+    
+    function logout() {
+      fetch(`/projectsenior/logout`, {})
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success:', data);
+          window.location.href = "index";
+        })
+    }
+
+    // SweetAlert Success
+    function showToast(titleText) {
+      const ToastTrue = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      ToastTrue.fire({
+        icon: "success",
+        title: titleText
+      }).then(() => {
+        location.reload();
+      })
+    }
+
+    // SweetAlert Error
+    function showToastError(err) {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "error",
+        title: err
+      })
+    }
+
+    // API GET DECK
+    fetch("/api/admin/deck", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        let html = "";
+        data.forEach((item, index) => {
+          let classroom = item.classroom_id;
+          html += `
+              <tr>
+                  <td>${index + 1}</td>
+                  <td>${item._id}</td>
+                  <td>${item.deck_name}</td>
+                  <td>${classroom.classroom_name}</td>
+                  <td>
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editDeck"
+                      onclick="getDetailEditDeck('${item._id}')">
+                          Edit
+                      </button>
+                  </td>
+                  <td>
+                      <a class="btn btn-danger btn-icon-split" onclick="deleteDeck('${item._id}')">
+                          <span class="icon text-white-50">
+                              <i class="fas fa-trash"></i>
+                          </span>
+                          <span class="text">Delete</span>
+                      </a>
+                  </td>
+              </tr>
+          `;
+        });
+        document.getElementById("teacherTableBody").innerHTML = html;
+        $(document).ready(function () {
+          $("#dataTable").DataTable();
+        });
+      });
+
+    // Api Delete Deck
+    function deleteDeck(deckId) {
+      Swal.fire({
+        title: "ต้องการจะลบใช่หรือไม่?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "ใช่, ลบรายการ!",
+        cancelButtonText: "ยกเลิก",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          fetch("/api/admin/deck/delete/" + deckId, {
+            method: "DELETE",
+          }).then((response) => response.json())
+            .then(() => {
+              showToast("ลบข้อมูลสำเร็จแล้ว");
+            });
+        }
+      });
+    }
+
+    // Api Import File Flashcard
+    const fileInput = document.getElementById('formFile');
+    const formImport = document.getElementById('formImport');
+
+    function importFile(deckId) {
+      formImport.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+        formData.append('file', fileInput.files[0]);
+
+        fetch('/api/admin/flashcard/import/' + deckId, {
+          method: 'POST',
+          body: formData
+        })
+          .then(res => res.json())
+          .then(data => {
+            if (data.msg) {
+              showToastError(data.msg);
+            } else {
+              showToast("เพิ่มข้อมูลสำเร็จแล้ว");
+            }
+          })
+          .catch(err => {
+            showToastError(err);
+          });
+      });
+
+      // Api Post InputManual Flashcard 
+      const textareaForm = document.getElementById('textareaForm');
+      textareaForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // ดึงข้อมูลจาก textarea ทั้งหมด
+        const questions = document.querySelectorAll('textarea[name="question"]');
+        const answers = document.querySelectorAll('textarea[name="answer"]');
+        const deckids = deckId;
+        const data = [];
+
+        // สร้างอาเรย์ของอ็อบเจ็กต์เพื่อเก็บข้อมูลจากทุก textarea
+        questions.forEach((question, index) => {
+          console.log(deckids);
+          data.push({
+            question: question.value,
+            answer: answers[index].value,
+            deckid: deckids
+          });
+        });
+        console.log(data)
+        // ทำ Fetch เพื่อส่งข้อมูลไปยังเซิร์ฟเวอร์ Node.js
+        fetch('/api/admin/flashcard/' + deckId, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ data })
+        })
+          .then(response => response.json())
+          .then(() => {
+            showToast("เพิ่มข้อมูลสำเร็จแล้ว");
+
+            // Reset textarea values
+            questions.forEach(question => (question.value = ''));
+            answers.forEach(answer => (answer.value = ''));
+          })
+          .catch(err => {
+            showToastError(err);
+          });
+      });
+    }
+
+    // Funtion Button Add Textarea Question and Answer
+    function addForm() {
+      const addBtn = document.getElementById('addBtn');
+      const formQA = document.getElementById('formQA');
+      const div = document.createElement('div'); // create div
+
+      div.className = 'row'; // เป็นการเพิ่ม class ให้ div
+      div.innerHTML = `
+          <div class="col-md-5 my-2">
+              <div class="input-group">
+                <textarea name="question" class="form-control" aria-label="With textarea" id="importquestion" placeholder="Question"></textarea>
+              </div>
+          </div>
+          <div class="col-md-5 my-2">
+              <div class="input-group">
+                <textarea name="answer" class="form-control" aria-label="With textarea" id="importanswer" placeholder="Answer"></textarea>
+              </div>
+          </div>
+          <div class="col-md-1 col-3 my-2">
+              <button type="button" class="btn btn-success" id="addBtn" onclick="addForm()" style="font-weight: bold;"><i class="bi bi-plus-circle"></i> Add</button>
+          </div>
+          <div class="col-md-1 col-3 my-2">
+              <button type="button" class="btn btn-danger" id="addBtn" onclick="delForm()" style="font-weight: bold;"><i class="bi bi-trash"></i> Del</button>
+          </div>
+        `;
+      formQA.appendChild(div); // เป็นการเพิ่ม div ลงไปใน formQA
+    }
+
+    // Funtion Button Delete Textarea Question and Answer
+    function delForm() {
+      const formQA = document.getElementById('formQA');
+      formQA.removeChild(formQA.lastChild);
+    }
+
+    // Function Api Get Detail Edit Deck
+    function getDetailEditDeck(deckId) {
+      fetch('/api/admin/deck/' + deckId, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('inputDeckId').value = data._id;
+          document.getElementById('modalDeckName').value = data.deck_name;
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    }
+
+    // Function Api Edit Deck
+    const editDeck = document.getElementById('editDeck');
+    editDeck.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Check Deck Name
+      var reg = /^[a-zA-Z0-9]{1,20}$/;
+      let regexEditDeckName;
+      if (!reg.test(document.getElementById("modalDeckName").value)) {
+        regexEditDeckName = "กรุณากรอก ชื่อเด็ค.";
+        document.getElementById("modalDeckName").style.border = "1px solid red";
+      } else {
+        regexEditDeckName = "";
+        document.getElementById("modalDeckName").style.border = "1px solid #d1d3e2";
+      }
+      document.getElementById("regexEditDeckName").innerHTML = regexEditDeckName;
+
+
+      if (regexEditDeckName === "") {
+        const deckId = document.getElementById('inputDeckId').value;
+        const deckName = document.getElementById('modalDeckName').value;
+
+        fetch('/api/admin/deck/' + deckId, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            deck_name: deckName,
+          }),
+        }).then(response => {
+          if (!response.ok) {
+            return response.json().then(data => {
+              throw new Error(data.message);
+            });
+          }
+          return response.json();
+        }).then(() => {
+          showToast("แก้ไขข้อมูลสำเร็จแล้ว");
+        }).catch(err => {
+          showToastError(err);
+        });
+      }
+    });
+
+  </script>
+</body>
+
+</html>

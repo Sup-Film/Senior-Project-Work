@@ -1,0 +1,74 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+.navbar {
+   border-radius: 0.375rem 0.375rem 0 0 !important;
+
+   & .nav-link,
+   .navbar-brand {
+      color: white !important;
+      font-weight: bolder;
+   }
+}
+
+.nav-item {
+   margin-left: 15px;
+}
+
+.nav-link {
+   border-radius: 0.375rem;
+
+   &.active {
+      background-color: rgb(17 24 39 / 1);
+      border-radius: 0.375rem;
+
+      &:hover {
+         background-color: rgb(17 24 39 / 1);
+         border-radius: 0.375rem;
+      }
+   }
+
+   &:hover {
+      background-color: rgb(69, 73, 82);
+      border-radius: 0.375rem;
+   }
+
+}
+
+.btn-link {
+   text-decoration: none;
+   color: white;
+   font-weight: bolder;
+}
+
+.btn {
+   font-weight: bolder;
+}
+
+.btn-login {
+   background-color: #ffc10700;
+   border: 0px;
+}
+
+.bg-dark {
+   background-color: rgb(31 41 55 / 1) !important;
+}
+
+/* ? Font */
+.font-robotomono {
+   font-family: 'Roboto Mono', monospace !important;
+   font-weight: bold;
+}
+
+/* Eng Font */
+.font-poppin {
+   font-family: 'Poppins', sans-serif !important;
+}
+
+/* Th Font */
+.font-kanit {
+   font-family: 'Kanit', sans-serif !important;
+}

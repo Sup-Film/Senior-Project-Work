@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Class room</title>
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+
+  <!-- Bootrap 5 -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+    integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.2/css/boxicons.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/classroom.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/classroomcard.css">
+
+  <!-- Side-bar -->
+  <link rel="stylesheet" href="css/side-bar.css" />
+
+
+  <style>
+    p {
+      margin-bottom: 0;
+    }
+
+
+    .col-md-3 {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .col-lg-3 {
+      width: fit-content !important;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- !Side bar -->
+  <div class="menu-sidebar open">
+    <div class="logo-details">
+      <i class='bx bxl-python icon'></i>
+      <div class="logo_name">PyFlash</div>
+      <i class="bx bx-menu" id="btn"></i>
+    </div>
+    <ul class="sidebarnav-list">
+      <li>
+        <a href="index">
+          <i class='bx bxs-home-alt-2'></i>
+          <span class="links_name">Home</span>
+        </a>
+        <span class="tooltip">Home</span>
+      </li>
+      <li>
+        <a href="" id="sidebarClassroom">
+          <i class="bi bi-book-half"></i>
+          <span class="links_name">Classroom</span>
+        </a>
+        <span class="tooltip">Classroom</span>
+      </li>
+
+      <li class="profile">
+        <div class="profile-details">
+          <div class="name_job">
+            <div class="name" id="sidebar_name"></div>
+          </div>
+        </div>
+        <i class="bx bx-log-out" id="log_out"></i>
+      </li>
+    </ul>
+  </div>
+
+  <header class="header-section justify-content-end row align-items-center header">
+    <div class="col-md-1 text-end">
+      <a id="btnCreateClassroom" href="#divOne"><i class="bi bi-file-earmark-plus"></i></a>
+    </div>
+  </header>
+
+  <section class="home-section">
+    <nav
+      style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+      aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Classroom</li>
+      </ol>
+    </nav>
+    <div class="row" id="classroomCard" id="root">
+
+    </div>
+  </section>
+
+  <!-- FORMPOP CREATE -->
+  <div class="overlay" id="divOne">
+    <div class="row">
+      <div class="col-md-12" style="padding-left: 50px;">
+        <div class="wrapper">
+          <h2>Create Classroom</h2><a class="close" href="#">&times;</a>
+          <div class="content">
+            <div class="container">
+              <form id="createroom">
+                <label>Name room</label>
+                <input placeholder="Your classname.." type="text" class="" value="" id="nameroom"
+                  pattern="^[a-zA-Z0-9]{1,5}$" required>
+                <label>Description</label>
+                <textarea id="description" value="" placeholder="Description" ></textarea>
+                <input style="display: none;" value="" id="creator">
+                <input style="display: none;" value="" id="teacherid">
+                <input style="display: none;" value="" id="adminid">
+                <input type="submit" value="Create" class="btn-add" id="createdata">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMPOP EDIT -->
+  <div class="overlay" id="formedit">
+    <div class="row">
+      <div class="col-md-12" style="padding-left: 50px;">
+        <div class="wrapper">
+          <h2>Update Classroom</h2><a class="close" href="#">&times;</a>
+          <div class="content">
+            <div class="container">
+              <form id="updateroom">
+                <input style="display: none;" for="" id="classroomID"></input>
+                <label>Name room</label>
+                <input placeholder="Your classname.." type="text" value="" id="updatenameroom"
+                  pattern="^[a-zA-Z0-9]{1,5}$" required>
+                <label>Description</label>
+                <textarea id="updatedescription" value="" pattern="^[ก-ฮa-zA-Z\s]{1,72}$" placeholder="Description"></textarea>
+                <input style="display: none;" value="" id="updateteacherid">
+                <input style="display: none;" value="" id="updateadminid">
+                <input type="submit" value="Update" class="btn-add" id="updatedata">
+                <a class="" id="btndelete" href="#" onclick="btndeletedata()">DELETE</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--!Container-->
+  <!-- Side-bar -->
+  <script src="js/side-bar.js"></script>
+
+  <!-- SCRIPT -->
+  <script src="js/script.js"></script>
+  <script src="js/classroom.js"></script>
+
+  <!-- Bootrap 5 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Sweetalert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+    const name = localStorage.getItem('userName');
+    const sidebarClassroom = document.getElementById('sidebarClassroom');
+    sidebarClassroom.href = 'classroom?name=' + name;
+  </script>
+
+</body>
+
+</html>

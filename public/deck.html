@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classroom</title>
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+
+  <!-- Bootrap 5 -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+    integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.2/css/boxicons.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/classroom.css" />
+
+  <!-- Side-bar -->
+  <link rel="stylesheet" href="css/side-bar.css" />
+
+  <style>
+    .col-md-12 p {
+      color: white;
+    }
+
+    #btnCreateDeck, .btnManageFlashcard, .gear-manage, .btnStatBoard {
+      display: none;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- !Side bar -->
+  <div class="menu-sidebar open">
+    <div class="logo-details">
+      <i class='bx bxl-python icon'></i>
+      <div class="logo_name">PyFlash</div>
+      <i class="bx bx-menu" id="btn"></i>
+    </div>
+    <ul class="sidebarnav-list">
+      <li>
+        <a href="index">
+          <i class='bx bxs-home-alt-2'></i>
+          <span class="links_name">Home</span>
+        </a>
+        <span class="tooltip">Home</span>
+      </li>
+      <li>
+        <a href="" id="sidebarClassroom">
+          <i class="bi bi-book-half"></i>
+          <span class="links_name">Classroom</span>
+        </a>
+        <span class="tooltip">Classroom</span>
+      </li>
+
+      <li class="profile">
+        <div class="profile-details">
+          <div class="name_job">
+            <div class="name" id="sidebar_name"></div>
+          </div>
+        </div>
+        <i class="bx bx-log-out" id="log_out"></i>
+      </li>
+    </ul>
+  </div>
+  <!-- !End Sidebar -->
+
+  <!--!Container-->
+  <!-- Button Create Flashcard -->
+  <div class="header-section d-flex justify-content-end align-items-center" style="padding-right: 4rem;">
+    <div class="row">
+      <div class="col-md-12 m-0 p-0">
+        <a class="btn btn-primary font-poppin" role="button" href="#createdeck" style="font-weight: bold;"
+          onclick="btncreatedeck()" id="btnCreateDeck">
+          <i class="bi bi-plus-circle"></i>
+          Create Deck
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Button Create Flashcard -->
+
+  <div class="home-section">
+    <input style="display: none;" id="deckID"></input>
+    <nav
+      style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+      aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index">Home</a></li>
+        <li class="breadcrumb-item"><a id="classroom" href="">Classroom</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Deck</li>
+      </ol>
+    </nav>
+    <!-- Deck Card -->
+    <div class="row">
+      <div class="col-12 mb-5">
+        <div class="ag-format-container">
+          <div class="ag-courses_box" id="innerhtmlclassflash">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Deck Card -->
+  </div>
+
+  <!-- FORMPOP CREATE DECK -->
+  <div class="overlay" id="createdeck">
+    <div class="row">
+      <div class="col-md-12" style="padding-left: 50px;">
+        <div class="wrapper">
+          <h2>Create Deck</h2><a class="close" href="#">&times;</a>
+          <div class="content">
+            <div class="container">
+              <form id="createdeck">
+                <label class="font-poppin" style="font-size: 25px;">Deck Name</label>
+                <input style="display: none;" for="" id="createdeckid">
+                <input placeholder="Enter Your Deck name.." type="text" class="" value="" id="deckname"
+                  pattern="^[a-zA-Z0-9 ]{1,20}$" required>
+                <input style="display: none;" value="" id="teacherid">
+                <input style="display: none;" value="" id="adminid">
+                <input type="submit" value="Create" class="btn-add" id="createdata" style="background-color :#4723D9 ;">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMPOP EDIT DECK -->
+  <div class="overlay" id="formeditdeck">
+    <div class="row">
+      <div class="col-md-12" style="padding-left: 50px;">
+        <div class="wrapper">
+          <h2 class="font-poppin">Update Deck</h2><a class="close" href="#">&times;</a>
+          <div class="content">
+            <div class="container">
+              <form id="updatedecks">
+                <label class="font-poppin">Deck name</label>
+                <input placeholder="Your classname.." type="text" value="" id="updatenamedeck"
+                  pattern="^[a-zA-Z0-9 ]{1,20}$" required>
+                <input style="display: none;" value="Supakorn Dongkew" id="updatecreator">
+                <input style="display: none;" value="" id="updateteacherid">
+                <input style="display: none;" value="" id="updateadminid">
+                <input type="submit" value="Update" class="btn-add" id="updatedata">
+                <a class="" id="btndelete" href="#" onclick="btndeletedeck()">DELETE</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+  </script>
+
+  <!-- Side-bar -->
+  <script src="js/side-bar.js"></script>
+
+  <!-- SCRIPT -->
+  <script src="js/script.js"></script>
+  <script src="js/deck.js"></script>
+
+  <!-- Bootrap 5 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Sweetalert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+</html>
